@@ -237,7 +237,7 @@ body {
     width: 34rem;
     background-color: #fff;
     box-shadow: 0 0.8rem 5rem 2rem rgba(101, 90, 86, 0.1);
-    visibility: hidden;
+    /* visibility: hidden; */
     opacity: 0;
     transition: all .5s .2s; }
 

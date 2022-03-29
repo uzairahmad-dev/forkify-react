@@ -1,10 +1,14 @@
 import React from 'react';
 
+import Header from './components/Header';
+import ResultList from './components/ResultList';
+
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <h1>Forkify</h1>
-    </div>
+      <div className="container">
+        <Header />
+        <ResultList />
+      </div>
   );
 }
 

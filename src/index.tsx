@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 
 import './index.css';
 import App from './App';
+import RecipeProvider from './contexts/recipe-context';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <RecipeProvider>
+      <App />
+    </RecipeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
