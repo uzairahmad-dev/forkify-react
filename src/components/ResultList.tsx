@@ -1,16 +1,28 @@
 import React, {useContext, useState} from "react";
 
-import { RecipeContext } from '../contexts/recipe-context'
+import { RecipeContext, RecipeActionTypes } from '../contexts/recipe-context'
 import { limitRecipeTitle } from '../utils/helper-functions';
 import { Icons } from "../assets/svg";
 import LoaderUI from './Loader-UI';
 
 const ResultList: React.FC = () => {
 
-    const { state } = useContext(RecipeContext);
+    const { state, dispatch } = useContext(RecipeContext);
     const [page, setPage] = useState(1);
     
     const resPerPage = 10;
+
+    const recipeIdHandler = (e: React.SyntheticEvent, id: string) => {
+        e.preventDefault();
+
+        dispatch({
+            type: RecipeActionTypes.SET_RECIPE_ID,
+            payload: {
+                recipe_id: id
+            }
+        })
+        
+    };
 
     const renderRecipes = () => {
         const start = (page - 1) * resPerPage;
@@ -18,7 +30,7 @@ const ResultList: React.FC = () => {
         return state.data.slice(start,end).map(recipe => {
             return (
                 <li key={recipe.recipe_id}>
-                    <a className="results__link" href={recipe.recipe_id}>
+                    <a className="results__link" href="/" onClick={(e) => recipeIdHandler(e,recipe.recipe_id)} >
                         <figure className="results__fig">
                             <img src={recipe.image_url} alt={recipe.title} />
                         </figure>
@@ -49,7 +61,6 @@ const ResultList: React.FC = () => {
             // Only Button to go To Previous Page
             return createButton(page, 'prev');
         };
-
     };  
 
     const createButton = (page: number, type: string) => {
