@@ -2,12 +2,14 @@ import React, { useContext, useRef } from 'react';
 import axios from 'axios';
 
 import SearchForm from './SearchForm';
+import LikesList from './LikesList';
 import { RecipeContext, RecipeActionTypes } from '../contexts/recipe-context';
 import {Logo} from '../assets/img/index';
+import { Icons } from '../assets/svg';
 
 const Header: React.FC = () => {
 
-    const { dispatch } = useContext(RecipeContext);
+    const { state, dispatch } = useContext(RecipeContext);
 
     const enteredRecipe = useRef<HTMLInputElement>(null);
 
@@ -67,11 +69,41 @@ const Header: React.FC = () => {
         } 
     };
 
+    const renderLikes = () => {
+        return state.likedRecipes.map(rec => {
+            const likedObj = {
+                id: rec.id,
+                name: rec.title,
+                author: rec.author,
+                img: rec.img
+            }
+
+            return <LikesList key={rec.id} liked={likedObj} />
+        });
+    };
+
     return (
         <header className='header'>
             <img src={Logo} alt="Logo" className="header__logo" />
             <SearchForm inpRecipeRef={enteredRecipe} recipeSubmitHandler={searchRecipeHandler} />
-            {/* <Likes /> */}
+            <div className="likes">
+                {
+                    state.likedRecipes.length > 0 ?
+                    <>
+                        <div className="likes__field">
+                            <svg className="likes__icon">
+                                <use href={`${Icons}#icon-heart`}></use>
+                            </svg>
+                        </div>
+                        <div className="likes__panel">
+                            <ul className="likes__list">
+                                {renderLikes()}
+                            </ul>
+                        </div>
+                    </>
+                    : null
+                }
+            </div>
         </header>
     );
 }

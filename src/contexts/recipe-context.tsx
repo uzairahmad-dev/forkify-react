@@ -11,9 +11,15 @@ interface RecipeAction {
   payload?: any 
 };
 
+export interface IngredientObj {
+  count: number;
+  unit: string;
+  ingredient: string
+};
+
 type RecipeSingle = {
   publisher: string;
-  ingredients: string[];
+  ingredients: IngredientObj[];
   source_url: string;
   image_url: string;
   title: string;
@@ -21,7 +27,9 @@ type RecipeSingle = {
 
 type LikedRecipe = {
   id: string,
-  title: string
+  title: string,
+  img: string,
+  author: string
 }
 
 type AppState = typeof initialState;
