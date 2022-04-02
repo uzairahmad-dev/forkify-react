@@ -3,7 +3,8 @@ import axios from 'axios';
 
 import SearchForm from './SearchForm';
 import LikesList from './LikesList';
-import { RecipeContext, RecipeActionTypes } from '../contexts/recipe-context';
+import { RecipeContext } from '../contexts/recipe-context';
+import { RecipeActionTypes } from '../utils/helper-types';
 import {Logo} from '../assets/img/index';
 import { Icons } from '../assets/svg';
 

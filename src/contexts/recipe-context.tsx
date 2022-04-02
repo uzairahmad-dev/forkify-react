@@ -1,48 +1,16 @@
 import React, {createContext, useReducer} from 'react';
 
-import { Recipe } from '../utils/helper-interfaces';
-
-interface RecipeProviderProps {
-    children: React.ReactNode;
-};
-
-interface RecipeAction {
-  type: RecipeActionTypes,
-  payload?: any 
-};
-
-export interface IngredientObj {
-  count: number;
-  unit: string;
-  ingredient: string
-};
-
-type RecipeSingle = {
-  publisher: string;
-  ingredients: IngredientObj[];
-  source_url: string;
-  image_url: string;
-  title: string;
-};
-
-type LikedRecipe = {
-  id: string,
-  title: string,
-  img: string,
-  author: string
-}
+import { 
+  Recipe,
+  RecipeActionTypes,
+  RecipeProviderProps,
+  RecipeAction,
+  RecipeSingle,
+  LikedRecipe,
+  IngredientObj
+} from '../utils/helper-types';
 
 type AppState = typeof initialState;
-
-export enum RecipeActionTypes {
-  SET_RECIPE_VALUE = "SET_RECIPE_VALUE",
-  SET_RECIPES = "SET_RECIPES",
-  SET_ERROR= "SET_ERROR",
-  SET_LOADING= "SET_LOADING",
-  SET_RECIPE="SET_RECIPE",
-  SET_RECIPE_ID= "SET_RECIPE_ID",
-  SET_LIKED_RECIPES= "SET_LIKED_RECIPES"
-};
 
 const initialState = {
     recipeFor: "",
@@ -51,7 +19,8 @@ const initialState = {
     loading: false,
     recipe: {} as RecipeSingle,
     recipe_id: "",
-    likedRecipes: [] as LikedRecipe[]
+    likedRecipes: [] as LikedRecipe[],
+    shoppingList: [] as IngredientObj[]
 };
 
 export const RecipeContext = createContext<{
@@ -81,6 +50,9 @@ const recipeReducer = (state: AppState, action: RecipeAction) => {
     }
     case RecipeActionTypes.SET_LIKED_RECIPES: {
       return { ...state, likedRecipes: action.payload.likedRecipes }
+    }
+    case RecipeActionTypes.SET_SHOPPING_LIST: {
+      return { ...state, shoppingList: action.payload.shoppingList }
     }
     default:
       throw new Error(`Unhandled action type: ${action.type}`);

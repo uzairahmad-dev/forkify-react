@@ -1,6 +1,7 @@
 import React, {useContext} from "react";
 
-import {RecipeContext, RecipeActionTypes} from '../contexts/recipe-context';
+import { RecipeContext } from '../contexts/recipe-context';
+import { RecipeActionTypes } from '../utils/helper-types';
 
 interface LikesProps {
     liked: {

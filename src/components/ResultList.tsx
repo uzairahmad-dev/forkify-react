@@ -1,6 +1,7 @@
 import React, {useContext, useState} from "react";
 
-import { RecipeContext, RecipeActionTypes } from '../contexts/recipe-context'
+import { RecipeContext } from '../contexts/recipe-context'
+import { RecipeActionTypes } from '../utils/helper-types';
 import { limitRecipeTitle } from '../utils/helper-functions';
 import { Icons } from "../assets/svg";
 import LoaderUI from './Loader-UI';

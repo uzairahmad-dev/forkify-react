@@ -4,7 +4,7 @@ import {Icons} from '../assets/svg/index'
 
 interface FormProps {
     recipeSubmitHandler: (e: React.FormEvent<HTMLFormElement>) => void;
-    inpRecipeRef: LegacyRef<HTMLInputElement>
+    inpRecipeRef: LegacyRef<HTMLInputElement>;
 };
 
 const SearchForm: React.FC<FormProps> = (props) => {

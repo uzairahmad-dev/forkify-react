@@ -3,6 +3,7 @@ import React from 'react';
 import Header from './components/Header';
 import ResultList from './components/ResultList';
 import RecipeView from './components/RecipeView';
+import ShoppingList from './components/ShoppingList';
 
 const App: React.FC = () => {
   return (
@@ -10,6 +11,7 @@ const App: React.FC = () => {
         <Header />
         <ResultList />
         <RecipeView />
+        <ShoppingList />
       </div>
   );
 }
