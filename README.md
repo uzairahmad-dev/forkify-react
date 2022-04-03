@@ -6,13 +6,11 @@ Check this project on [Forkify](https://forkify-react-type.netlify.app/).
 
 An application used to get 1M+ recipes from Forkify API, built with React, Context-API, Typescript and CSS.
 
-## Project Screen Shot(s)
+## Project Screen Shots   
 
-#### Example:   
+<img width="512" alt="initial" src="https://user-images.githubusercontent.com/47333917/161430236-8a732e73-0f27-4c64-b828-8fc5d147525e.png">
 
-[ PRETEND SCREEN SHOT IS HERE ]
-
-[ PRETEND OTHER SCREEN SHOT IS HERE ]
+<img width="486" alt="final" src="https://user-images.githubusercontent.com/47333917/161430280-02de9a6c-f1ae-4adc-9b44-ea91d68ee71c.png">
 
 ## Installation and Setup Instructions
 
