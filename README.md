@@ -1,10 +1,7 @@
-# Forkify project using React & Typescript
-
-Check this project on [Forkify](https://forkify-react-type.netlify.app/).
-
 ## Forkify
 
 An application used to get 1M+ recipes from Forkify API, built with React, Context-API, Typescript and CSS.
+Check this project on [Forkify](https://forkify-react-type.netlify.app/).
 
 ## Project Screen Shots   
 
